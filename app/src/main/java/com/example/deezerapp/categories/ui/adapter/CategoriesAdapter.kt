@@ -19,7 +19,7 @@ class CategoriesAdapter @Inject constructor() :
         override fun bind(item: CategoriesDataData) {
             with(binding) {
                 imageViewCategoryImage.setImage(
-                    url = item.pictureMedium,
+                    url = item.pictureXl,
                     placeholder = createPlaceHolder(root.context)
                 )
                 textViewCategoryTitle.text = item.name
