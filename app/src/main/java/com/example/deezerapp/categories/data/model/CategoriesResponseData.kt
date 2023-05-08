@@ -19,7 +19,7 @@ data class CategoriesResponseData(
     val pictureMedium: String,
 
     @SerializedName("picture_small")
-    val picturesmall: String,
+    val pictureSmall: String,
 
     @SerializedName("picture_xl")
     val pictureXl: String,
