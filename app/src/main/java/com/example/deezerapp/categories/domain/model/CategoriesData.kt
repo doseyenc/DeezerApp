@@ -1,5 +1,5 @@
 package com.example.deezerapp.categories.domain.model
 
 data class CategoriesData(
-    val data : List<CategoriesDataData>
+    val data : List<CategoriesDataData?>?
 )
