@@ -16,7 +16,7 @@ import com.example.deezerapp.R
 
 
 object Constants {
-    const val BASE_URL_ADDRESS = ""
+    const val BASE_URL_ADDRESS = "https://api.deezer.com/"
 }
 
 fun goToUrl(url: String): Intent? {
