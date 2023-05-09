@@ -30,6 +30,7 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>() {
         setUpRv()
         categoriesAdapter.onCategoriesClick = {
             Log.e(TAG, "categoryClicked: $it")
+            navigate(CategoriesFragmentDirections.actionCategoriesFragmentToArtistListingFragment(it))
         }
     }
 
@@ -43,9 +44,6 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>() {
                     GridLayoutManager.VERTICAL,
                     false
                 )
-            categoriesAdapter.onCategoriesClick = { it ->
-
-            }
             adapter = categoriesAdapter
         }
     }

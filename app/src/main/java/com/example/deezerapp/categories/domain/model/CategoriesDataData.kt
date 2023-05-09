@@ -1,5 +1,9 @@
 package com.example.deezerapp.categories.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class CategoriesDataData(
     val id: Int?,
     val name: String?,
@@ -9,4 +13,4 @@ data class CategoriesDataData(
     val pictureSmall: String?,
     val pictureXl: String?,
     val type: String?
-)
+):Parcelable

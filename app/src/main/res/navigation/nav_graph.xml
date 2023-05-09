@@ -9,10 +9,23 @@
         android:id="@+id/categoriesFragment"
         android:name="com.example.deezerapp.categories.ui.CategoriesFragment"
         android:label="fragment_categories"
-        tools:layout="@layout/fragment_categories" />
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_artistListingFragment"
+            app:destination="@id/artistListingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/savedFragment"
         android:name="com.example.deezerapp.SavedFragment"
         android:label="fragment_saved"
         tools:layout="@layout/fragment_saved" />
+    <fragment
+        tools:layout="@layout/fragment_artist_listing"
+        android:id="@+id/artistListingFragment"
+        android:name="com.example.deezerapp.artistlistingpage.ui.ArtistListingFragment"
+        android:label="ArtistListingFragment" >
+        <argument
+            android:name="CategoriesDataData"
+            app:argType="com.example.deezerapp.categories.domain.model.CategoriesDataData" />
+    </fragment>
 </navigation>
