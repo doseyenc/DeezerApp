@@ -54,6 +54,4 @@ class ArtistListingViewModel @Inject constructor(
     private fun onGetArtistListResponseFail(throwable: Throwable) {
         stateLiveData.value = ArtistListingViewState.Error(throwable)
     }
-
-
 }
