@@ -10,13 +10,12 @@ import javax.inject.Inject
 class ArtistListingRepository @Inject constructor(
     private val artistListingDataSource: ArtistListingDataSource.Remote
 ) {
-    fun getDetail(
+    fun getArtistList(
         id: String,
     ): Observable<Resource<ArtistListingResponse>> {
         return artistListingDataSource
             .getArtistList(
                 id = id,
-            )
-            .remote()
+            ).remote()
     }
 }
