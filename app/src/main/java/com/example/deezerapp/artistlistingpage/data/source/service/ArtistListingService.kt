@@ -8,6 +8,6 @@ import retrofit2.http.Path
 interface ArtistListingService {
     @GET("genre/{id}/artists")
     fun getArtistList(
-        @Path("id") id: Int
+        @Path("id") id: String
     ): Single<ArtistListingResponse>
 }
