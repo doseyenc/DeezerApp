@@ -2,8 +2,9 @@ package com.example.deezerapp.artistdetailpage.domain.mapper
 
 import com.example.deezerapp.artistdetailpage.data.model.ArtistDetailResponse
 import com.example.deezerapp.artistdetailpage.domain.model.ArtistDetailData
+import javax.inject.Inject
 
-class ArtistDetailMapper {
+class ArtistDetailMapper @Inject constructor() {
     fun mapResultsFromResponse(
         response: ArtistDetailResponse?
     ): ArtistDetailData {
