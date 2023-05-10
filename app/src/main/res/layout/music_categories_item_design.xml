@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    android:id="@+id/cardViewCategory"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardViewCategory"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-android:layout_marginStart="24dp"
-    android:layout_marginEnd="24dp"
     android:layout_marginVertical="8dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginEnd="24dp"
     app:cardCornerRadius="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,17 +43,17 @@ android:layout_marginStart="24dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_semibold"
+            android:maxLines="2"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:fontFamily="@font/poppins_semibold"
             android:textSize="16sp"
-            android:maxLines="2"
-            android:ellipsize="end"
-            android:layout_marginBottom="8dp"
-            tools:text="Rap"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/view"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/view" />
+            app:layout_constraintTop_toTopOf="@+id/view"
+            tools:text="Rap" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
