@@ -1,5 +1,9 @@
 package com.example.deezerapp.artistlistingpage.domain.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class ArtistListingDataData(
     val id: Int?,
     val name: String?,
@@ -10,4 +14,4 @@ data class ArtistListingDataData(
     val pictureXl: String?,
     val trackList: String?,
     val type: String?
-)
+):Parcelable

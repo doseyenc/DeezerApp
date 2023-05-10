@@ -49,6 +49,11 @@ class ArtistListingFragment : BaseFragment<FragmentArtistListingBinding>() {
         }
         artistListingAdapter.onCategoriesClick = {
             Log.e(TAG, "categoryClicked: $it")
+            navigate(
+                ArtistListingFragmentDirections.actionArtistListingFragmentToArtistDetailFragment(
+                    it
+                )
+            )
         }
     }
 

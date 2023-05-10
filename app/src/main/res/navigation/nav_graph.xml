@@ -27,5 +27,17 @@
         <argument
             android:name="CategoriesDataData"
             app:argType="com.example.deezerapp.categories.domain.model.CategoriesDataData" />
+        <action
+            android:id="@+id/action_artistListingFragment_to_artistDetailFragment"
+            app:destination="@id/artistDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/artistDetailFragment"
+        android:name="com.example.deezerapp.artistdetailpage.ui.ArtistDetailFragment"
+        android:label="fragment_artist_detail"
+        tools:layout="@layout/fragment_artist_detail" >
+        <argument
+            android:name="ArtistListingDataData"
+            app:argType="com.example.deezerapp.artistlistingpage.domain.model.ArtistListingDataData" />
     </fragment>
 </navigation>
