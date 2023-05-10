@@ -1,6 +1,6 @@
 package com.example.deezerapp.artistdetailpage.domain.model
 
-data class AlbumDetailDataData(
+data class AlbumListingDataData(
     val id: Int?,
     val title: String?,
     val cover: String?,
