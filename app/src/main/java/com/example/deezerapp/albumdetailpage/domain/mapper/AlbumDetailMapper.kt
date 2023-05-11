@@ -1,8 +1,10 @@
 package com.example.deezerapp.albumdetailpage.domain.mapper
 
 import com.example.deezerapp.albumdetailpage.data.model.AlbumDetailResponse
+import com.example.deezerapp.albumdetailpage.data.model.AlbumResponseData
 import com.example.deezerapp.albumdetailpage.data.model.TracksData
 import com.example.deezerapp.albumdetailpage.data.model.TracksResponseData
+import com.example.deezerapp.albumdetailpage.domain.model.AlbumData
 import com.example.deezerapp.albumdetailpage.domain.model.AlbumDetailData
 import com.example.deezerapp.albumdetailpage.domain.model.TrackDomainDataData
 import com.example.deezerapp.albumdetailpage.domain.model.TracksDomainData
@@ -51,6 +53,21 @@ class AlbumDetailMapper @Inject constructor() {
             link = tracksData.link,
             duration = tracksData.duration,
             preview = tracksData.preview,
+            album = mapAlbumDataFromResponse(tracksData.album),
+        )
+    }
+
+    private fun mapAlbumDataFromResponse(album: AlbumResponseData?): AlbumData? {
+        return AlbumData(
+            id = album?.id,
+            title = album?.title,
+            cover = album?.cover,
+            coverSmall = album?.coverSmall,
+            coverMedium = album?.coverMedium,
+            coverBig = album?.coverBig,
+            coverXl = album?.coverXl,
+            trackList = album?.trackList,
+            type = album?.type,
         )
     }
 

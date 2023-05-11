@@ -27,5 +27,6 @@ data class TracksData(
     val explicitContentCover : Int?,
     @SerializedName("preview")
     val preview : String?,
-
+    @SerializedName("album")
+    val album : AlbumResponseData?,
 )
