@@ -39,5 +39,17 @@
         <argument
             android:name="ArtistListingDataData"
             app:argType="com.example.deezerapp.artistlistingpage.domain.model.ArtistListingDataData" />
+        <action
+            android:id="@+id/action_artistDetailFragment_to_albumDetailFragment"
+            app:destination="@id/albumDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/albumDetailFragment"
+        android:name="com.example.deezerapp.albumdetailpage.ui.AlbumDetailFragment"
+        android:label="fragment_album_detail"
+        tools:layout="@layout/fragment_album_detail" >
+        <argument
+            android:name="albumId"
+            app:argType="string" />
     </fragment>
 </navigation>

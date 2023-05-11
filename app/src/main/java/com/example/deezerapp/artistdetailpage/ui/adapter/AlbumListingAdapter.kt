@@ -13,14 +13,14 @@ import javax.inject.Inject
 class AlbumListingAdapter @Inject constructor() :
     BaseRecyclerViewAdapter<AlbumListingDataData,
             AlbumItemDesignBinding>() {
-    var onAlbumClick: ((trending: AlbumItemDesignBinding) -> Unit)? = null
+    var onAlbumClick: ((trending: AlbumListingDataData) -> Unit)? = null
 
     inner class TrendingItemViewHolder(private val binding: AlbumItemDesignBinding) :
         ViewBindingViewHolder(binding) {
         override fun bind(item: AlbumListingDataData) {
             with(binding) {
                 cardViewAlbum.setOnClickListener {
-                    onAlbumClick?.invoke(binding)
+                    onAlbumClick?.invoke(item)
                 }
                 imageViewAlbumImage.setImage(
                     url = item.coverMedium,
