@@ -131,6 +131,11 @@ class ArtistDetailFragment : BaseFragment<FragmentArtistDetailBinding>() {
         setUpRv()
         albumListingAdapter.onAlbumClick = {
             Log.e("ArtistDetailFragment", "onAlbumClick: $it")
+            navigate(
+                ArtistDetailFragmentDirections.actionArtistDetailFragmentToAlbumDetailFragment(
+                    it.id.toString()
+                )
+            )
         }
     }
 
