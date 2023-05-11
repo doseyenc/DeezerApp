@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.deezerapp.albumdetailpage.AudioPlayer
 import com.example.deezerapp.albumdetailpage.domain.model.AlbumDetailData
 import com.example.deezerapp.albumdetailpage.ui.adapter.MusicAdapter
 import com.example.deezerapp.albumdetailpage.ui.viewmodel.AlbumDetailViewModel
@@ -25,6 +26,8 @@ class AlbumDetailFragment : BaseFragment<FragmentAlbumDetailBinding>() {
     //Adapter
     @Inject
     lateinit var musicAdapter: MusicAdapter
+
+    private val audioPlayer = AudioPlayer()
 
     override fun init() {
         setupView()
@@ -76,6 +79,8 @@ class AlbumDetailFragment : BaseFragment<FragmentAlbumDetailBinding>() {
         setUpRv()
         musicAdapter.onMusicClick = {
             Log.e("AlbumDetailFragment", "setupView: $it")
+            audioPlayer.stopAudio()
+            it.preview?.let { it1 -> audioPlayer.playAudio(it1) }
         }
     }
 
@@ -90,6 +95,11 @@ class AlbumDetailFragment : BaseFragment<FragmentAlbumDetailBinding>() {
                 )
             adapter = musicAdapter
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        audioPlayer.stopAudio()
     }
 
 }
