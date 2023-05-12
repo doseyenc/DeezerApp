@@ -49,6 +49,7 @@ class AlbumDetailFragment : BaseFragment<FragmentAlbumDetailBinding>() {
             is AlbumDetailViewState.Empty -> emptyStateAlbumDetail()
             is AlbumDetailViewState.Success -> displayAlbumDetailData(viewState.albumDetailData)
             is AlbumDetailViewState.Error -> errorHandleAlbumDetail(viewState.throwable)
+            else -> {}
         }
 
     private fun errorHandleAlbumDetail(throwable: Throwable) {
@@ -81,6 +82,9 @@ class AlbumDetailFragment : BaseFragment<FragmentAlbumDetailBinding>() {
             Log.e("AlbumDetailFragment", "setupView: $it")
             audioPlayer.stopAudio()
             it.preview?.let { it1 -> audioPlayer.playAudio(it1) }
+        }
+        musicAdapter.onMusicSaveClick = {
+            albumDetailViewModel.saveMusic(it)
         }
     }
 
