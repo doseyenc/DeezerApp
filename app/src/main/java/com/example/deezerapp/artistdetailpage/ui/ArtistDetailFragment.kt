@@ -3,7 +3,9 @@ package com.example.deezerapp.artistdetailpage.ui
 
 import android.util.Log
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.ui.NavigationUI.navigateUp
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.deezerapp.artistdetailpage.domain.model.AlbumListingData
@@ -136,6 +138,11 @@ class ArtistDetailFragment : BaseFragment<FragmentArtistDetailBinding>() {
                     it.id.toString()
                 )
             )
+        }
+        with(binding){
+            imageViewBack.setOnClickListener {
+                findNavController().navigateUp()
+            }
         }
     }
 

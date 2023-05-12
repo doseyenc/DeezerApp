@@ -57,7 +57,7 @@ class MusicAdapter @Inject constructor() :
                     }
                 }
                 textViewMusicName.text = item.title
-                textViewDuration.text = "${item.duration.toString()}\""
+                textViewDuration.text = item.duration?.let { convertSecondsToMinutes(it) }
                 cardViewMusic.setOnClickListener {
                     onMusicClick?.invoke(item)
                 }
@@ -67,7 +67,11 @@ class MusicAdapter @Inject constructor() :
             }
         }
     }
-
+    fun convertSecondsToMinutes(seconds: Int): String {
+        val minutes = seconds / 60
+        val remainingSeconds = seconds % 60
+        return "$minutes:$remainingSeconds"
+    }
     override fun getViewHolder(parent: ViewGroup, viewType: Int): ViewBindingViewHolder {
         return MusicItemViewHolder(parent.inflate(MusicItemDesignBinding::inflate))
     }

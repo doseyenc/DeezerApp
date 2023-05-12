@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.deezerapp.R
@@ -46,6 +47,9 @@ class ArtistListingFragment : BaseFragment<FragmentArtistListingBinding>() {
         setUpRv()
         with(binding) {
             textViewCategoryTitle.text = args.CategoriesDataData.name
+            imageViewBack.setOnClickListener {
+                findNavController().navigateUp()
+            }
         }
         artistListingAdapter.onCategoriesClick = {
             Log.e(TAG, "categoryClicked: $it")

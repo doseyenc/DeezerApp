@@ -36,7 +36,7 @@
             android:maxLines="1"
             android:textColor="@color/text_title_color"
             android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewSave"
             app:layout_constraintStart_toEndOf="@+id/imageViewAlbumImage"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Music Name" />
