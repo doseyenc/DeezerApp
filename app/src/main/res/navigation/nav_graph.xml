@@ -16,9 +16,13 @@
     </fragment>
     <fragment
         android:id="@+id/savedFragment"
-        android:name="com.example.deezerapp.SavedFragment"
+        android:name="com.example.deezerapp.savedpage.SavedFragment"
         android:label="fragment_saved"
-        tools:layout="@layout/fragment_saved" />
+        tools:layout="@layout/fragment_saved" >
+        <action
+            android:id="@+id/action_savedFragment_self"
+            app:destination="@id/savedFragment" />
+    </fragment>
     <fragment
         tools:layout="@layout/fragment_artist_listing"
         android:id="@+id/artistListingFragment"
@@ -51,5 +55,8 @@
         <argument
             android:name="albumId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_albumDetailFragment_self"
+            app:destination="@id/albumDetailFragment" />
     </fragment>
 </navigation>

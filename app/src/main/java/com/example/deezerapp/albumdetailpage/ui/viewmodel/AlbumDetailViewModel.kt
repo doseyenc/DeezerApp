@@ -96,6 +96,15 @@ class AlbumDetailViewModel @Inject constructor(
             )
     }
 
+    fun deleteMusic(
+        trackDomainDataData: TrackDomainDataData
+    ) {
+        albumDetailUseCase
+            .deleteTrack(
+                id = trackDomainDataData.trackId.toString()
+            )
+    }
+
     private fun createTrackToSave(trackDomainDataData: TrackDomainDataData): TrackLocalData {
         return TrackLocalData(
             musicId = trackDomainDataData.trackId,

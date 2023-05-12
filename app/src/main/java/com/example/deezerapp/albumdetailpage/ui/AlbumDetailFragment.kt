@@ -6,11 +6,10 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.deezerapp.albumdetailpage.AudioPlayer
 import com.example.deezerapp.albumdetailpage.domain.model.AlbumDetailData
+import com.example.deezerapp.albumdetailpage.domain.model.TrackDomainDataData
 import com.example.deezerapp.albumdetailpage.ui.adapter.MusicAdapter
 import com.example.deezerapp.albumdetailpage.ui.viewmodel.AlbumDetailViewModel
 import com.example.deezerapp.albumdetailpage.ui.viewstate.AlbumDetailViewState
-import com.example.deezerapp.artistdetailpage.ui.adapter.AlbumListingAdapter
-import com.example.deezerapp.artistdetailpage.ui.viewstate.AlbumListingViewState
 import com.example.deezerapp.common.view.BaseFragment
 import com.example.deezerapp.databinding.FragmentAlbumDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +36,7 @@ class AlbumDetailFragment : BaseFragment<FragmentAlbumDetailBinding>() {
     private fun setupViewModel() {
         with(albumDetailViewModel) {
             getAlbumDetail(args.albumId)
+            getAllTracks()
             getStateLiveData().observe(viewLifecycleOwner) {
                 renderAlbumDetailStatusViewState(it)
             }
@@ -48,9 +48,23 @@ class AlbumDetailFragment : BaseFragment<FragmentAlbumDetailBinding>() {
             is AlbumDetailViewState.Loading -> loadingInProgressAlbumDetail()
             is AlbumDetailViewState.Empty -> emptyStateAlbumDetail()
             is AlbumDetailViewState.Success -> displayAlbumDetailData(viewState.albumDetailData)
+            is AlbumDetailViewState.SuccessLocal -> displayLocalAlbumDetailData(viewState.albumDetailData)
+            is AlbumDetailViewState.SuccessLocalList -> displayLocalListAlbumDetailData(viewState.albumDetailDataList)
             is AlbumDetailViewState.Error -> errorHandleAlbumDetail(viewState.throwable)
-            else -> {}
         }
+
+
+    private fun displayLocalListAlbumDetailData(albumDetailDataList: List<TrackDomainDataData?>?) {
+        Log.e("AlbumDetailFragment", "displayLocalListAlbumDetailData: $albumDetailDataList")
+        val trackIdList: List<Int> = albumDetailDataList?.map { track ->
+            track?.trackId ?: 0
+        } ?: emptyList()
+        musicAdapter.getIdList(trackIdList as MutableList<Int>)
+    }
+
+    private fun displayLocalAlbumDetailData(albumDetailDataList: TrackDomainDataData?) {
+        Log.e("AlbumDetailFragment", "displayLocalAlbumDetailData: $albumDetailDataList")
+    }
 
     private fun errorHandleAlbumDetail(throwable: Throwable) {
         Log.e("AlbumDetailFragment", "errorHandleAlbumDetail: $throwable")
@@ -83,8 +97,21 @@ class AlbumDetailFragment : BaseFragment<FragmentAlbumDetailBinding>() {
             audioPlayer.stopAudio()
             it.preview?.let { it1 -> audioPlayer.playAudio(it1) }
         }
-        musicAdapter.onMusicSaveClick = {
-            albumDetailViewModel.saveMusic(it)
+        musicAdapter.onMusicSaveClick = { music: TrackDomainDataData, saved: Boolean, pos: Int ->
+            val viewHolder =
+                binding.recyclerViewSongs.findViewHolderForAdapterPosition(pos) as MusicAdapter.MusicItemViewHolder
+
+            if (saved) {
+                albumDetailViewModel.deleteMusic(music)
+                viewHolder.setUnSavedBg(requireContext())
+                navigate(AlbumDetailFragmentDirections.actionAlbumDetailFragmentSelf(args.albumId))
+            } else {
+                albumDetailViewModel.saveMusic(music)
+                viewHolder.setSavedBg(requireContext())
+                navigate(AlbumDetailFragmentDirections.actionAlbumDetailFragmentSelf(args.albumId))
+            }
+
+
         }
     }
 
@@ -94,7 +121,7 @@ class AlbumDetailFragment : BaseFragment<FragmentAlbumDetailBinding>() {
             layoutManager =
                 LinearLayoutManager(
                     requireContext(),
-                    androidx.recyclerview.widget.LinearLayoutManager.VERTICAL,
+                    LinearLayoutManager.VERTICAL,
                     false
                 )
             adapter = musicAdapter

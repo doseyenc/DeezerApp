@@ -8,6 +8,6 @@ sealed class AlbumDetailViewState {
     object Empty : AlbumDetailViewState()
     data class Success(val albumDetailData: AlbumDetailData?) : AlbumDetailViewState()
     data class SuccessLocalList(val albumDetailDataList: List<TrackDomainDataData?>?) : AlbumDetailViewState()
-    data class SuccessLocal(val albumDetailDataList: TrackDomainDataData?) : AlbumDetailViewState()
+    data class SuccessLocal(val albumDetailData: TrackDomainDataData?) : AlbumDetailViewState()
     data class Error(val throwable: Throwable) : AlbumDetailViewState()
 }
