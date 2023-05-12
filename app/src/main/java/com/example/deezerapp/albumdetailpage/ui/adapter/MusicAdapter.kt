@@ -21,7 +21,7 @@ class MusicAdapter @Inject constructor() :
     var onMusicClick: ((music: TrackDomainDataData) -> Unit)? = null
     var onMusicSaveClick: ((music: TrackDomainDataData, isSaved: Boolean,pos:Int) -> Unit)? = null
 
-    val list = mutableListOf<Int>()
+    val list = mutableListOf<Long>()
 
     inner class MusicItemViewHolder(private val binding: MusicItemDesignBinding) :
         ViewBindingViewHolder(binding) {
@@ -72,7 +72,7 @@ class MusicAdapter @Inject constructor() :
         return MusicItemViewHolder(parent.inflate(MusicItemDesignBinding::inflate))
     }
 
-    fun getIdList(idList: MutableList<Int>) {
+    fun getIdList(idList: MutableList<Long>) {
         list.clear()
         list.addAll(idList)
     }

@@ -3,7 +3,7 @@ package com.example.deezerapp.albumdetailpage.domain.model
 import com.example.deezerapp.albumdetailpage.data.model.TracksResponseData
 
 data class AlbumDetailData(
-    val id : Int?,
+    val id : Long?,
     val title : String?,
     val link : String?,
     val share : String?,

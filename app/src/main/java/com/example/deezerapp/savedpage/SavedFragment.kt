@@ -79,10 +79,10 @@ class SavedFragment : BaseFragment<FragmentSavedBinding>() {
     private fun displayLocalListAlbumDetailData(albumDetailDataList: List<TrackDomainDataData?>?) {
         Log.e("AlbumDetailFragment", "displayLocalListAlbumDetailData: $albumDetailDataList")
         binding.savedSongsStateLayout.content()
-        val trackIdList: List<Int> = albumDetailDataList?.map { track ->
-            track?.trackId ?: 0
+        val trackIdList: List<Long> = albumDetailDataList?.map { track ->
+            track?.trackId ?: 0L
         } ?: emptyList()
-        musicAdapter.getIdList(trackIdList as MutableList<Int>)
+        musicAdapter.getIdList(trackIdList as MutableList<Long>)
         if (trackIdList.isNotEmpty()) {
             musicAdapter.setItems(albumDetailDataList as List<TrackDomainDataData>)
         } else {

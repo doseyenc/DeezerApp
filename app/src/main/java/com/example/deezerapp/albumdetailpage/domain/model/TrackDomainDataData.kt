@@ -2,7 +2,7 @@ package com.example.deezerapp.albumdetailpage.domain.model
 
 
 data class TrackDomainDataData(
-    val trackId : Int?,
+    val trackId : Long?,
     val title : String?,
     val titleShort : String?,
     val link : String?,

@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class AlbumLocalData(
     @PrimaryKey
     @ColumnInfo(name = "album_id")
-    val id: Int?,
+    val id: Long?,
     @ColumnInfo(name = "album_title")
     val albumTitle: String?,
     @ColumnInfo(name = "album_cover")

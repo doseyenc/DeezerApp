@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class TracksData(
     @SerializedName("id")
-    val id : Int?,
+    val id : Long?,
     @SerializedName("readable")
     val readable : Boolean?,
     @SerializedName("title")

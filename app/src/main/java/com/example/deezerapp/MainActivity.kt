@@ -2,6 +2,7 @@ package com.example.deezerapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.deezerapp.databinding.ActivityMainBinding
@@ -19,5 +20,19 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController = navHostFragment.navController
         setupWithNavController(binding.bottomNavigationView, navController)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.categoriesFragment -> showBottomNav()
+                R.id.savedFragment -> showBottomNav()
+                else -> hideBottomNav()
+            }
+        }
+    }
+    private fun showBottomNav() {
+        binding.bottomNavigationView.visibility = View.VISIBLE
+    }
+
+    private fun hideBottomNav() {
+        binding.bottomNavigationView.visibility = View.GONE
     }
 }

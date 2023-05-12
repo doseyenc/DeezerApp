@@ -56,10 +56,10 @@ class AlbumDetailFragment : BaseFragment<FragmentAlbumDetailBinding>() {
 
     private fun displayLocalListAlbumDetailData(albumDetailDataList: List<TrackDomainDataData?>?) {
         Log.e("AlbumDetailFragment", "displayLocalListAlbumDetailData: $albumDetailDataList")
-        val trackIdList: List<Int> = albumDetailDataList?.map { track ->
-            track?.trackId ?: 0
+        val trackIdList: List<Long> = albumDetailDataList?.map { track ->
+            track?.trackId ?: 0L
         } ?: emptyList()
-        musicAdapter.getIdList(trackIdList as MutableList<Int>)
+        musicAdapter.getIdList(trackIdList as MutableList<Long>)
     }
 
     private fun displayLocalAlbumDetailData(albumDetailDataList: TrackDomainDataData?) {
