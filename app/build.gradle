@@ -93,4 +93,9 @@ dependencies {
 
     //Expandable Text View
     implementation 'io.github.glailton.expandabletextview:expandabletextview:1.0.3'
+    //Room
+    implementation "androidx.room:room-runtime:2.5.1"
+    kapt "androidx.room:room-compiler:2.5.1"
+    implementation "androidx.room:room-ktx:2.5.1"
+    implementation "androidx.room:room-rxjava3:2.6.0-alpha01"
 }

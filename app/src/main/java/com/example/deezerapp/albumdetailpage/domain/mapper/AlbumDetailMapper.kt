@@ -4,6 +4,8 @@ import com.example.deezerapp.albumdetailpage.data.model.AlbumDetailResponse
 import com.example.deezerapp.albumdetailpage.data.model.AlbumResponseData
 import com.example.deezerapp.albumdetailpage.data.model.TracksData
 import com.example.deezerapp.albumdetailpage.data.model.TracksResponseData
+import com.example.deezerapp.albumdetailpage.data.model.local.AlbumLocalData
+import com.example.deezerapp.albumdetailpage.data.model.local.TrackLocalData
 import com.example.deezerapp.albumdetailpage.domain.model.AlbumData
 import com.example.deezerapp.albumdetailpage.domain.model.AlbumDetailData
 import com.example.deezerapp.albumdetailpage.domain.model.TrackDomainDataData
@@ -41,13 +43,13 @@ class AlbumDetailMapper @Inject constructor() {
         return data?.mapNotNull {
             mapTracksData(it)
         }?.filter {
-            it.id != null
+            it.trackId != null
         }.orEmpty()
     }
 
     private fun mapTracksData(tracksData: TracksData): TrackDomainDataData {
         return TrackDomainDataData(
-            id = tracksData.id,
+            trackId = tracksData.id,
             title = tracksData.title,
             titleShort = tracksData.titleShort,
             link = tracksData.link,
@@ -71,5 +73,43 @@ class AlbumDetailMapper @Inject constructor() {
         )
     }
 
+    fun mapFromLocal(trackLocalData: TrackLocalData) {
+        mapTrackLocalData(trackLocalData)
+    }
+    fun mapListFromLocal(data: List<TrackLocalData>?)
+            : List<TrackDomainDataData>? {
+        return data?.mapNotNull {
+            mapTrackLocalData(it)
+        }?.filter {
+            it.trackId != null
+        }.orEmpty()
+    }
 
-}
+    fun mapTrackLocalData(trackLocalData: TrackLocalData): TrackDomainDataData {
+        return TrackDomainDataData(
+            trackId = trackLocalData.musicId,
+            title = trackLocalData.trackTitle,
+            titleShort = trackLocalData.titleShort,
+            link = trackLocalData.link,
+            duration = trackLocalData.duration,
+            preview = trackLocalData.preview,
+            album = mapLocalAlbumDataFromResponse(trackLocalData.album),
+        )
+    }
+
+    private fun mapLocalAlbumDataFromResponse(album: AlbumLocalData?): AlbumData? {
+            return AlbumData(
+                id = album?.id,
+                title = album?.albumTitle,
+                cover = album?.cover,
+                coverSmall = album?.coverSmall,
+                coverMedium = album?.coverMedium,
+                coverBig = album?.coverBig,
+                coverXl = album?.coverXl,
+                trackList = album?.trackList,
+                type = album?.type,
+            )
+        }
+    }
+
+

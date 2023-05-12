@@ -13,6 +13,7 @@ class MusicAdapter @Inject constructor() :
     BaseRecyclerViewAdapter<TrackDomainDataData,
             MusicItemDesignBinding>() {
     var onMusicClick: ((trending: TrackDomainDataData) -> Unit)? = null
+    var onMusicSaveClick: ((trending: TrackDomainDataData) -> Unit)? = null
 
     inner class TrendingItemViewHolder(private val binding: MusicItemDesignBinding) :
         ViewBindingViewHolder(binding) {
@@ -23,6 +24,9 @@ class MusicAdapter @Inject constructor() :
                 textViewDuration.text = "${item.duration.toString()}\""
                 cardViewMusic.setOnClickListener {
                     onMusicClick?.invoke(item)
+                }
+                imageViewSave.setOnClickListener {
+                    onMusicSaveClick?.invoke(item)
                 }
             }
         }
