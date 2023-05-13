@@ -2,6 +2,7 @@ package com.example.deezerapp.albumdetailpage.ui
 
 import android.util.Log
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.deezerapp.albumdetailpage.AudioPlayer
@@ -56,10 +57,10 @@ class AlbumDetailFragment : BaseFragment<FragmentAlbumDetailBinding>() {
 
     private fun displayLocalListAlbumDetailData(albumDetailDataList: List<TrackDomainDataData?>?) {
         Log.e("AlbumDetailFragment", "displayLocalListAlbumDetailData: $albumDetailDataList")
-        val trackIdList: List<Int> = albumDetailDataList?.map { track ->
-            track?.trackId ?: 0
+        val trackIdList: List<Long> = albumDetailDataList?.map { track ->
+            track?.trackId ?: 0L
         } ?: emptyList()
-        musicAdapter.getIdList(trackIdList as MutableList<Int>)
+        musicAdapter.getIdList(trackIdList as MutableList<Long>)
     }
 
     private fun displayLocalAlbumDetailData(albumDetailDataList: TrackDomainDataData?) {
@@ -92,6 +93,11 @@ class AlbumDetailFragment : BaseFragment<FragmentAlbumDetailBinding>() {
 
     private fun setupView() {
         setUpRv()
+        with(binding) {
+            imageViewBack.setOnClickListener {
+                findNavController().navigateUp()
+            }
+        }
         musicAdapter.onMusicClick = {
             Log.e("AlbumDetailFragment", "setupView: $it")
             audioPlayer.stopAudio()

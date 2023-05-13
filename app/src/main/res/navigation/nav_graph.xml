@@ -57,6 +57,8 @@
             app:argType="string" />
         <action
             android:id="@+id/action_albumDetailFragment_self"
-            app:destination="@id/albumDetailFragment" />
+            app:destination="@id/albumDetailFragment"
+            app:popUpTo="@id/albumDetailFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

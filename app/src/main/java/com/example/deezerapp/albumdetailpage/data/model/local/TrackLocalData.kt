@@ -12,7 +12,7 @@ import com.example.deezerapp.albumdetailpage.domain.model.AlbumData
 data class TrackLocalData(
     @PrimaryKey
     @ColumnInfo(name = "music_id")
-    val musicId : Int?,
+    val musicId : Long?,
     @ColumnInfo(name = "track_title")
     val trackTitle : String?,
     @ColumnInfo(name = "title_short")

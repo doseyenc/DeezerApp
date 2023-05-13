@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class AlbumListingResponseData(
     @SerializedName("id")
-    val id: Int,
+    val id: Long,
     @SerializedName("title")
     val title: String,
     @SerializedName("link")
