@@ -20,69 +20,85 @@ Project Features
  </h3><br>
 
 <p align="left">
-<img align="left" src="" width="250" height="530"/>
-<img align="left" src="" width="250" height="530"/>
+<img align="left" src="https://github.com/doseyenc/DeezerApp/blob/main/images/splash_screen.png" width="250" height="530"/>
 </p>
 
 <h2 align="center">
 Splash Screen
 </h2>
 
-<h3 align="center"><br><br><br><br><br><br>TabLayout and ViewPager2 used for Login and Sign up screens. Login and Sign up operations are provided with Firebase Authorization</h3><br><br><br><br><br><br><br><br><br><br>
-
-<h2 align="center">
-Main Screen
-</h2>
-
-<h3 align="left">
-- Books listed using RecyclerView + DataBinding. <br>
-- Book search feature works with author, book name and publisher name. Search can be made with the SearchView in the RecyclerView.<br>
-- When the book image is pressed, the BottomShhet opens and details are displayed. The book is sent to the basket with the Add to Basket button. <br>
-- The "+" button in the CardView is used to add book to basket. (Note: Images are added with url.) <br>
- </h3>
-<p align="center">
-<img align="center" src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/books.png" width="250" height="530"/>
-<img align="center" src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/books_2.png" width="250" height="530"/>
-</p>
-<p align="center">
-<img align="center" src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/book_detail_bottom.png" width="250" height="530"/> 
+<h3 align="center"><br><br><br><br><br><br>Deezer icon is used for splash screen</h3><br><br><br><br><br><br><br><br>
+</h3><br><br><br><br><br><br><br><br>
+<p align="left">
+<img align="left" src="https://github.com/doseyenc/DeezerApp/blob/main/images/music_category.png" width="250" height="530"/>
 </p>
 
-<br><br>
-<img align="right" src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/books_basket.png" width="250" height="530"/>
+
 
 <h2 align="center">
-Basket Screen
+Categories Screen
 </h2>
 
 <h3 align="center"><br><br><br><br><br><br>
-Books are added to basket with Room Database, printed with RecyclerView. It is deleted from the Room Database again with the Delete button.
-</h3>
-<br><br><br><br><br><br><br><br><br><br>
+- Categories listed using RecyclerView. <br>
+- Clicking on the category image will go to the artist listing page. <br>
+</h3><br><br><br><br><br><br><br><br>
 
-<img align="left" src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/payment.png" width="250" height="530"/>
-<img align="left" src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/order_alert.png" width="250" height="530"/>
 
-<br>
+</h3><br><br><br><br><br><br><br><br>
+<p align="left">
+<img align="left" src="https://github.com/doseyenc/DeezerApp/blob/main/images/artist_listing.png" width="250" height="530"/>
+</p>
 <h2 align="center">
-Payment Screen
+Artist Listing Screen
 </h2>
 
 <h3 align="center"><br><br><br><br><br>
-When one of the 4 payment methods is selected, the relevant information is uploaded to the card below. It can be edited with the edit address button. With the Order Now button, an alert appears and the order is placed.
- </h3>
- <br><br><br><br><br><br><br><br><br><br><br>
+-Artists are listed according to the selected category<br>
+</h3><br><br><br><br><br><br><br><br>
 
-<img align="left" src="https://github.com/cnrture/BooksApp/blob/main/Screenshots/profile.png" width="250" height="530"/>
-
-<br>
+</h3><br><br><br><br><br><br><br><br>
+<p align="left">
+<img align="left" src="https://github.com/doseyenc/DeezerApp/blob/main/images/artist_detaik_page.png" width="250" height="530"/>
+</p>
 <h2 align="center">
-Profile Screen
+Artist Detail Screen
 </h2>
 
-<h3 align="center"><br><br><br><br><br>
-User information is retrieved with Firebase Auth. Log out the account by clicking the Sign Out button.
- </h3>
+<h3 align="center"><br><br><br><br>
+-Albums are listed according to the selected artist<br>
+</h3><br><br><br><br><br><br><br><br>
+
+</h3><br><br><br><br><br><br><br><br>
+<p align="left">
+<img align="left" src="https://github.com/doseyenc/DeezerApp/blob/main/images/album_detail_page.png" width="250" height="530"/>
+</p>
+<h2 align="center">
+Album Listing Screen
+</h2>
+
+<h3 align="center"><br><br><br><br><br><br>
+-Tracks are listed according to the selected album<br>
+-Clicking the track plays a 30 second preview<br>
+-When the heart icon is clicked, if the song is not saved in the room database, it will be saved. If it is saved, it will be deleted from the database.<br>
+</h3><br><br><br><br><br><br><br><br>
+
+</h3><br><br><br><br><br><br><br><br>
+<p align="left">
+<img align="left" src="https://github.com/doseyenc/DeezerApp/blob/main/images/empty_favorites.png" width="250" height="530"/>
+<img align="left" src="https://github.com/doseyenc/DeezerApp/blob/main/images/favoriler.png" width="250" height="530"/>
+</p>
+<h2 align="center">
+Favorites Screen
+</h2>
+
+<h3 align="center"><br><br><br><br>
+-The user reaches this page by using the favorites tab from the bottom navigation menu and can see it here if any track has been saved before.<br>
+-Clicking the track plays a 30 second preview<br>
+-When the heart icon is clicked, the selected track is deleted to the room database<br>
+</h3><br><br><br><br><br><br><br><br>
+
+
 
 
  
